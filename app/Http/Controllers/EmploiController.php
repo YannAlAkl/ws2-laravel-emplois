@@ -21,11 +21,6 @@ class EmploiController extends BaseController
 
 
 
-//     public function adminIndex()
-//     {
-//         $offreEmplois = OffreEmploi::all();
-//         return view('admin.offres.index', compact('offreEmplois'));
-//     }
 
 //     public function adminCreate()
 //     {
