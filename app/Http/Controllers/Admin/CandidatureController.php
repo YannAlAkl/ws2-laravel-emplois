@@ -29,7 +29,7 @@ class CandidatureController extends BaseController
         $request->validate([
             'prenom'    => 'required|string|max:255',
             'nom'       => 'required|string|max:255',
-            'courriel'  => 'required|email|max:255',
+            'courriel'  => 'required|email|max:255', 
             'telephone' => 'nullable|regex:/(0)[0-9]{9}/',
             'message'   => 'nullable|string',
             'cv'        => 'required|file|mimes:pdf|max:2048',

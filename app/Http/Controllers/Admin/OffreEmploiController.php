@@ -99,4 +99,14 @@ class OffreEmploiController extends BaseController
         return redirect()->route('admin.offres.index')
             ->with('success', 'Offre supprimée.');
     }
+
+    public function candidatures(OffreEmploi $offre)
+    {
+        $offre->load('candidatures');
+
+        return view('admin.offres.candidatures', [
+            'offreEmploi' => $offre,
+            'candidatures' => $offre->candidatures,
+        ]);
+    }
 }

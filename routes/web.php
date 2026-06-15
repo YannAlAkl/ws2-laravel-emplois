@@ -1,37 +1,44 @@
-<?php
+npm update<?php
 
 use App\Http\Controllers\Admin\CandidatureController;
+use App\Http\Controllers\Admin\OffreEmploiController;
 use App\Http\Controllers\EmploiController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/emplois');
 
-// GET	/	Accueil ou redirection vers /emplois
-// GET	/emplois	Liste publique des offres actives
-Route::get('/emploi', [EmploiController::class,'show'])
-->name('emploi.show');
+Route::get('/emplois', [EmploiController::class,'show'])
+->name('emplois.index');
 
-// GET	/emplois/{offreEmploi}	Détail public d’une offre
 Route::get('/emplois/{offreEmploi}', [EmploiController::class,'showEmploi'])
-->name('offreEmploi');
+->name('emplois.show');
 
-// GET	/emplois/{offreEmploi}/postuler	Formulaire de candidature
 Route::get('/emplois/{offreEmploi}/postuler', [CandidatureController::class,'postuler'])
-->name('candidature.show');
+->name('candidatures.create');
 
-// POST	/emplois/{offreEmploi}/postuler	Enregistrement d’une candidature avec CV
 Route::post('/emplois/{offreEmploi}/postuler', [CandidatureController::class,'soumettreCandidature'])
-->name('candidature.store');
+->name('candidatures.store');
 
-// GET	/admin/offres	Liste admin des offres avec nombre de candidatures
+Route::get('/admin/offres', [OffreEmploiController::class,'index'])
+->name('admin.offres.index');
 
-// GET	/admin/offres/create	Formulaire de création d’une offre
+Route::get('/admin/offres/create', [OffreEmploiController::class,'create'])
+->name('admin.offres.create');
 
-// POST	/admin/offres	Enregistrement d’une offre
+Route::post('/admin/offres', [OffreEmploiController::class,'store'])
+->name('admin.offres.store');
 
-// GET	/admin/offres/{offreEmploi}/edit	Formulaire de modification
+Route::get('/admin/offres/{offreEmploi}/edit', [OffreEmploiController::class,'edit'])
+->name('admin.offres.edit');
 
-// PUT/PATCH	/admin/offres/{offreEmploi}	Mise à jour d’une offre
+Route::match(['put','patch'],'/admin/offres/{offreEmploi}', [OffreEmploiController::class,'update'])
+->name('admin.offres.update');
 
+Route::delete('/admin/offres/{offreEmploi}', [OffreEmploiController::class,'destroy'])
+->name('admin.offres.destroy');
+
+Route::get('/admin/offres/{offreEmploi}/candidatures', [OffreEmploiController::class,'candidatures'])
+->name('admin.offres.candidatures');
+
+Route::get('/admin/candidatures/{candidature}/cv', [CandidatureController::class,'cv'])
+->name('admin.candidatures.cv');
