@@ -8,7 +8,7 @@
     {{-- Barre de retour --}}
     <div class="bg-white border-b border-slate-200">
         <div class="max-w-4xl mx-auto px-6 py-3">
-            <a href="{{ route('emploi.show') }}"
+            <a href="{{ route('emplois.index') }}"
                class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-cyan-600 transition-colors duration-200">
                 ← Retour aux offres
             </a>
@@ -118,8 +118,8 @@
             </div>
             @endif
 
-            {{-- Retour --}}
-            <a href="{{ route('emploi.show') }}"
+{{-- Retour --}}
+            <a href="{{ route('emplois.index') }}"
                class="block w-full text-center border border-slate-300 text-slate-600 font-medium
                       py-3 rounded-xl hover:border-[#1E2D4A] hover:text-[#1E2D4A] transition-colors duration-200">
                 ← Toutes les offres

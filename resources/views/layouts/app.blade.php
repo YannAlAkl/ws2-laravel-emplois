@@ -12,15 +12,15 @@
     <nav class="bg-[#1E2D4A] text-white shadow-md">
         <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
 
-            <a href="{{ route('emploi.show') }}"
+            <a href="{{ route('emplois.index') }}"
                class="text-lg font-bold tracking-tight hover:text-cyan-400 transition-colors duration-200">
                 💼 EmploiInterne
             </a>
 
             <div class="flex items-center gap-6 text-sm">
-                <a href="{{ route('emploi.show') }}"
-                   class="transition-colors duration-200
-                          {{ request()->routeIs('emploi.show') ? 'text-white font-semibold' : 'text-slate-300 hover:text-white' }}">
+                <a href="{{ route('emplois.index') }}"
+                   class="transition-colors duration-200"
+                          {{ request()->routeIs('emplois.index') ? 'text-white font-semibold' : 'text-slate-300 hover:text-white' }}
                     Offres
                 </a>
             </div>
